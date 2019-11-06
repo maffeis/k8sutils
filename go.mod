@@ -1,4 +1,4 @@
-module vipera.com/k8sutils
+module github.com/maffeis/k8sutils
 
 go 1.13
 

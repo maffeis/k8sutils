@@ -12,7 +12,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/version"
 	"k8s.io/client-go/kubernetes"
-	"vipera.com/k8sutils"
+	"github.com/maffeis/k8sutils"
 )
 
 func main() {
