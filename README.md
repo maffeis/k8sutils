@@ -5,8 +5,6 @@ The following example checks whether the go application is running on Kubernetes
 
 ```go
 import (
-	"fmt"
-
 	log "github.com/sirupsen/logrus"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -16,6 +14,12 @@ import (
 )
 
 func main() {
+	if k8sutils.IsRunningOnDocker() {
+		log.Infof("running on Docker")
+	} else {
+		log.Infof("NOT running on Docker")
+	}
+
 	if k8sutils.IsRunningOnKubernetes() {
 		var client *kubernetes.Clientset
 		var error error
@@ -37,11 +41,11 @@ func main() {
 			}
 
 			for _, node := range list.Items {
-				fmt.Printf("Node: %s\n", node.Name)
+				log.Infof("Node: %s", node.Name)
 			}
 		}
 	} else {
-		log.Infof("not running on Kubernetes")
+		log.Infof("NOT running on Kubernetes")
 	}
 }
 ```
