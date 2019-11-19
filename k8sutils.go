@@ -14,9 +14,14 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 )
 
-// IClientSet the abstracts Kubernetes client API
+// IClientSet abstracts Kubernetes client APIs
 type IClientSet interface {
-	CoreV1() corev1.CoreV1Interface
+	CoreV1() ICoreV1Interface
+}
+
+// ICoreV1Interface abstracts Kubernetes client APIs
+type ICoreV1Interface interface {
+	Secrets(namespace string) corev1.SecretInterface
 }
 
 // IsRunningOnKubernetes checks whether the application is running on
