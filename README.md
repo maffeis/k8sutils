@@ -3,6 +3,8 @@
 Module `github.com/maffeis/k8sutils` provides simple utility functions for developing Kubernetes applications in go.
 The following example checks whether the go application is running on Kubernetes. In case it is, the available Kubernetes nodes are listed.
 
+GoDoc: `https://godoc.org/github.com/maffeis/k8sutils`
+
 ```go
 import (
 	log "github.com/sirupsen/logrus"
