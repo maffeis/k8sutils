@@ -74,5 +74,7 @@ func (d MockCoreV1Interface) Secrets(namespace string) corev1.SecretInterface {
 }
 
 func TestLoadSslCert(t *testing.T) {
-	LoadSslCert(new(MockClientset), "ns", "key", "crtFile", "keyFile")
+	if error := LoadSslCert(new(MockClientset), "ns", "key", "crtFile", "keyFile"); error != nil {
+		t.Errorf("LoadSslCert failed: %s", error)
+	}
 }
